@@ -1,9 +1,9 @@
 import ScrollSuave from "./soft_scroll/softScroll.js";
 import Accordion from "./accordion__list/accordionList.js";
 import NavTab from "./nav__tab/navTab.js";
+import Modal from "./modal/modal.js";
 import dataRight from "./add_show_right/addShowRight.js";
 import changeScrollanimation from "./animacao__ao__scroll/animacaoScroll.js";
-import modal from "./modal/modal.js";
 import tooltip from "./tooltip/tooltip.js";
 import menuDropDown from "./drop_down/menuDropDown.js";
 import mobileMenu from "./mobile__menu/menuMobile.js";
@@ -23,9 +23,15 @@ window.onload = function init() {
   );
   navTab.init();
 
+  const modal = new Modal(
+    '[data-modal ="loging"]',
+    '[data-modal ="close"]',
+    '[data-modal ="container"]'
+  );
+  modal.init();
+
   dataRight();
   changeScrollanimation();
-  modal();
   tooltip();
   menuDropDown();
   mobileMenu();
