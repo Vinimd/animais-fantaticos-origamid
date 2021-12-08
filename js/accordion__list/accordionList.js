@@ -1,6 +1,5 @@
 export default function accordionList() {
   const faqItens = document.querySelectorAll("[data-faq='accordion'] dt");
-
   function addClassAtivo() {
     this.classList.toggle("ativo");
     this.nextElementSibling.classList.toggle("ativo");

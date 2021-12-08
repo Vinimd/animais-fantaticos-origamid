@@ -1,7 +1,6 @@
 {
-  "name": "06.babel",
+  "name": "animais-fantasticos",
   "version": "1.0.0",
-  "description": "",
   "main": "webpack.config.js",
   "scripts": {
     "build": "webpack --mode production ./js/script.js -o ./main.js",
