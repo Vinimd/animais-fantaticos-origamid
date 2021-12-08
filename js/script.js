@@ -1,6 +1,6 @@
 import navTab from "./nav__tab/navTab.js";
 import accordionList from "./accordion__list/accordionList.js";
-import sofScroll from "./soft_scroll/softScroll.js";
+import ScrollSuave from "./soft_scroll/softScroll.js";
 import dataRight from "./add_show_right/addShowRight.js";
 import changeScrollanimation from "./animacao__ao__scroll/animacaoScroll.js";
 import modal from "./modal/modal.js";
@@ -11,9 +11,10 @@ import initOpen from "./open/open.js";
 import InitFetchAnimais from "./fetch-animais/fetch-animais.js";
 
 window.onload = function init() {
+  const scrollSuave = new ScrollSuave("[data-anime='menu'] a[href^='#']");
+  scrollSuave.init();
   navTab();
   accordionList();
-  sofScroll();
   dataRight();
   changeScrollanimation();
   modal();
