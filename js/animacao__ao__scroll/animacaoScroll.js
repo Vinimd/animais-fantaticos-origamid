@@ -1,10 +1,14 @@
-export default function changeScrollanimation() {
-  const sections = document.querySelectorAll("[data-anime ='scroll']");
+export default class Scrollanimation {
+  constructor(sections) {
+    this.sections = document.querySelectorAll(sections);
+    this.halfWindow = window.innerHeight * 0.6;
 
-  function scrollAnimation() {
-    const halfWindow = window.innerHeight * 0.6;
-    sections.forEach((section) => {
-      const topDistance = section.getBoundingClientRect().top - halfWindow;
+    this.scrollAnimation = this.scrollAnimation.bind(this);
+  }
+
+  scrollAnimation() {
+    this.sections.forEach((section) => {
+      const topDistance = section.getBoundingClientRect().top - this.halfWindow;
       if (topDistance < 0) {
         section.classList.add("scroll-change");
       } else if (section.classList.contains("scroll-change")) {
@@ -13,9 +17,10 @@ export default function changeScrollanimation() {
     });
   }
 
-  if (sections.length) {
-    sections[0].classList.add("scroll-change");
-
-    window.addEventListener("scroll", scrollAnimation);
+  init() {
+    if (this.sections.length) {
+      this.sections[0].classList.add("scroll-change");
+      window.addEventListener("scroll", this.scrollAnimation);
+    }
   }
 }

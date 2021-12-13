@@ -4,8 +4,8 @@ import NavTab from "./nav__tab/navTab.js";
 import Modal from "./modal/modal.js";
 import Tooltip from "./tooltip/tooltip.js";
 import fetchAnimais from "./fetch-animais/fetch-animais.js";
+import Scrollanimation from "./animacao__ao__scroll/animacaoScroll.js";
 import dataRight from "./add_show_right/addShowRight.js";
-import changeScrollanimation from "./animacao__ao__scroll/animacaoScroll.js";
 import menuDropDown from "./drop_down/menuDropDown.js";
 import mobileMenu from "./mobile__menu/menuMobile.js";
 import initOpen from "./open/open.js";
@@ -34,8 +34,11 @@ window.onload = function init() {
   tooltip.init();
 
   fetchAnimais("./animaisapi.json", "numero-animal");
+
+  const scrollAnimation = new Scrollanimation("[data-anime ='scroll']");
+  scrollAnimation.init();
+
   dataRight();
-  changeScrollanimation();
   menuDropDown();
   mobileMenu();
   initOpen();
